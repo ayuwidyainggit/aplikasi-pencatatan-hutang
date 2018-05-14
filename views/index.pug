@@ -1,0 +1,15 @@
+html
+  head
+    title= title
+  body
+    h1= message
+	 form(action="/new_movie" method="POST")
+    p no:
+      input(type="text" name="no" placeholder="")
+    p keterangan:
+      input(type="text" name="keterangan" placeholder="")
+    p debet:
+      input(type="text" name="debet" placeholder="")
+	p kredit:
+      input(type="text" name="kredit" placeholder="")
+    input(type="submit")
