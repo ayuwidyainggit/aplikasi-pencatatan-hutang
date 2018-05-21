@@ -1,0 +1,18 @@
+html
+head
+	title hutang
+	body
+		form(action = "/hutang", method = "POST")
+		div
+			label(for = "NO") NO: 
+			input(NO = "NO")
+		br
+		div
+			label(for = "ID_S") NAMA_SUPLIER: 
+			input(name = "NAMA_SUPLIER")
+		br
+		div
+			label(for = "HUTANG") HUTANG: 
+			input(name = "HUTANG")
+		br
+		button(type = "submit") SAVE
