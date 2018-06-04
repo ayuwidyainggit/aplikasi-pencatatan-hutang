@@ -1,3 +1,5 @@
+
+
 *PROYEK BASIS DATA*
 ======================================================================================================================
 
@@ -68,3 +70,68 @@ app.get('/', (req, res) => res.send('Hello World!'))
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
 
 2. membuat form data persediaan dan membuat form data suplier
+*form hutang.pug*
+
+html
+head
+	title hutang
+	body
+		form(action = "/hutang", method = "POST")
+		div
+			label(for = "NO") NO: 
+			input(NO = "NO")
+		br
+		div
+			label(for = "ID_S") NAMA_SUPLIER: 
+			input(name = "NAMA_SUPLIER")
+		br
+		div
+			label(for = "HUTANG") HUTANG: 
+			input(name = "HUTANG")
+		br
+		button(type = "submit") SAVE
+ 
+ *form suplier.pug*
+ 
+ html
+head
+   title suplier
+   body
+      form(action = "/suplier", method = "POST")
+      div
+         label(for = "ID_S") ID_S: 
+         input(ID_S = "ID_S")
+      br
+      div
+         label(for = "NAMA_SUPLIER") NAMA_SUPLIER: 
+         input(name = "NAMA_SUPLIER")
+      br
+      div
+         label(for = "ALAMAT") ALAMAT: 
+         input(name = "ALAMAT")
+      br
+      button(type = "submit") SAVE
+
+
+*database suplier*
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/my_db');
+
+var SUPLIER = mongoose.Schema({
+   ID_S: String,
+   NAMA_SUPLIER: String,
+   ALAMAT: String
+});
+var Person = mongoose.model("Person", SUPLIER);
+
+*database hutang*
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/my_db');
+
+var HUTANG = mongoose.Schema({
+   NO_HUTANG: Number,
+   ID_S: String,
+   HUTANG: Number
+});
+var Person = mongoose.model("Person", HUTANG);
