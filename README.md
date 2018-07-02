@@ -93,7 +93,7 @@ app.listen(3000, () => console.log('Example app listening on port 3000!'))
 		button(type = "submit") SAVE
  
  
- *form suplier.pug*
+  *form suplier.pug*
  
  
      html
@@ -139,3 +139,29 @@ app.listen(3000, () => console.log('Example app listening on port 3000!'))
      HUTANG: Number
      });
      var Person = mongoose.model("Person", HUTANG);
+
+
+*koneksi ke database*
+
+    const express = require('express')
+    const app = express()
+    var mongoose = require('mongooose')
+    monggose.connect('localhost:27017/test')
+    var Schema = mongoose.Schema;
+
+    app.set('views', './views')
+    app.set('view engine', 'pug')
+
+    app.get('/', (req, res) => res.send('Hello World!'))
+
+    app.use(express.static('public'))
+
+    app.get('/ayu', function(req, res){
+     res.render('suplier')
+    }) 
+    app.get('/ayu1', function(req, res){
+     res.render('form2')
+    })   
+
+    app.listen(3000, () => console.log('Example app listening on port 3000!'))
+
