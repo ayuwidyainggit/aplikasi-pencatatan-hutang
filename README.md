@@ -192,3 +192,24 @@ ditambahkan pada routingnya
       });
     }
     });
+
+hutang.pug
+
+    html
+    head
+    title hutang
+    body
+        form(action = "/hutang1", method = "POST")
+        div
+            label(for = "NO") NO: 
+            input(NO = "NO")
+        br
+        div
+            label(for = "ID_S") NAMA_SUPLIER: 
+            input(name = "NAMA_SUPLIER")
+        br
+        div
+            label(for = "HUTANG") HUTANG: 
+            input(name = "HUTANG")
+        br
+        button.btn.btn-primary(input type='submit') simpan
