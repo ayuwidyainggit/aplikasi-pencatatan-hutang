@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+</HEAD>
+     <BODY>
+     <SCRIPT LANGUAGE="JavaScript">
+     function hitung(){
+     var NJOP=promt("masukkan NJOP :",0);
+     var NPOPTKP=promt("masukkan NJOP :",0);
+     BPHTB=eval(NJOP)+eval(NPOPTKP);
+     docuument.write("Hasil dari "+NJOP+"-"+NPOPTKP+"+="BPHTB");
+     }
+     </SCRIPT>
+     <BODY>
+       <form (action = "http://localhost:3000/hutang1", method = "GET")>
+        <CENTER> <H3> APLIKASI PERHITUNGAN BPHTP </H3> <CENTER>
+        Masukkan tarif NJOP  :
+        <INPUT type="text" name="NJOP"><BR>
+        Masukkan tarif NPOPTKP  :
+        <INPUT type="text" name="NPOPTKP"><BR>
+        Masukkan tarif  :
+        <SELECT name="dropdown" onchange"put()">
+        <OPTION>5%
+        <OPTION>6%
+        <OPTION>7%
+        <OPTION>8%
+        </SELECT><BR>		
+        BPHTB  :
+        <input type="submit" name="count" value="submit" >
+        <input type="reset" name="kosongkan" value="kosongkan" ><BR>
+        </BODY>
+</HTML>
