@@ -334,3 +334,6 @@ https://code.visualstudio.com/Download
         })  
 
         app.listen(3000, () => console.log('Example app listening on port 3000!'))
+
+
+masalahnya masih seperti kemaren pak, saat diklik buttonnya sudah mau memproses. tapi saat saya tambahkan untuk menghitung, malah jadi error, 
