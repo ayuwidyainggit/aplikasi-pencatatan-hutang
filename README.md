@@ -4,12 +4,11 @@
 ======================================================================================================================
 
 a. Nama Aplikasi
-APLIKASI PERHITUNGAN PERSEDIAAN METODE FIFO
+APLIKASI PERHITUNGAN HUTANG
 
 b. Desripsi:
 - Pokok Masalah :
-Membangun aplikasi perhitungan persediaan. Aplikasi ini digunakan untuk mengetahui laporan persediaan dalam perusahaan.
-
+Membangun aplikasi perhitungan persediaan. Aplikasi ini digunakan untuk mengetahui laporan Hutang dalam suatu perusahaan .
 - Batasan masalah :
 1. metode yang digunakan : FIFO
 *Metode FIFO*
@@ -213,3 +212,35 @@ hutang.pug
             input(name = "HUTANG")
         br
         button.btn.btn-primary(input type='submit') simpan
+
+a. Nama Aplikasi
+APLIKASI PERHITUNGAN BPHTB
+
+b. Desripsi:
+- Pokok Masalah :
+Membangun aplikasi perhitungan Bea Perolehan hak atas Tanah dan Bangunan
+- Batasan masalah :
+tarif BPHTB adalah 5%
+BPHTB = (NPOP - NPOPTKP)X5%
+Ayu Widya Inggit
+D3 KA - 163210012
+
+d. Development Tools
+Java Script, Express, MongoDB
+
+e. Instalasi Development Tools
+node JS, MongoDB, Notepad++
+
+f. Cara  Menjalankan
+mengisikan besarnya NPOP dari pembelian tanah dan bangunan , kemudian mengisikan NPOPTKP yg berlaku pada kabupaten tersebut.
+
+
+g. Lisensi
+nodeJS: https://nodejs.org/en/
+mongoDB :
+ https://www.quora.com/Where-can-I-find-MongoDB-for-a-32bit-windows-installer
+ https://www.mongodb.com/dr/fastdl.mongodb.org/win32/mongodb-win32-i386-3.2.14-signed.msi/download
+ 
+virtual studio code :
+https://code.visualstudio.com/Download
+
