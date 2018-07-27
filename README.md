@@ -244,3 +244,30 @@ mongoDB :
 virtual studio code :
 https://code.visualstudio.com/Download
 
+1) bphtb.pug (view\bphtb.pug)
+
+        <HTML>
+        <HEAD>
+        </HEAD>
+            <BODY>
+             <form (action = "http://localhost:3000/hutang1", method = "GET")>
+             <CENTER> <H3> APLIKASI PERHITUNGAN BPHTP </H3> <CENTER>
+              Masukkan tarif NJOP  :
+              <INPUT type="text" name="NJOP"><BR>
+              Masukkan tarif NPOPTKP  :
+              <INPUT type="text" name="NPOPTKP"><BR>
+              Masukkan tarif  :
+              <SELECT name="dropdown" onchange"put()">
+              <OPTION>5%
+              <OPTION>6%
+              <OPTION>7%
+              <OPTION>8%
+              </SELECT><BR>		
+              BPHTB  :
+              <input type="submit" name="count" value="submit" >
+              <input type="reset" name="kosongkan" value="kosongkan" ><BR>
+        </BODY>
+        </HTML>
+
+2)bphtb.pug (setelah dirubah agar bisa diproses) 
+
