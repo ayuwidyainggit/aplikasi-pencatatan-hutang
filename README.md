@@ -270,4 +270,67 @@ https://code.visualstudio.com/Download
         </HTML>
 
 2)bphtb.pug (setelah dirubah agar bisa diproses) 
+               
+     <HTML>
+     <HEAD>
+     </HEAD>
+     <BODY>
+     <SCRIPT LANGUAGE="JavaScript">
+     function hitung(){
+     var NJOP=promt("masukkan NJOP :",0);
+     var NPOPTKP=promt("masukkan NJOP :",0);
+     BPHTB=eval(NJOP)+eval(NPOPTKP);
+     docuument.write("Hasil dari "+NJOP+"-"+NPOPTKP+"+="BPHTB");
+     }
+     </SCRIPT>
+     <BODY>
+       <form (action = "http://localhost:3000/hutang1", method = "GET")>
+        <CENTER> <H3> APLIKASI PERHITUNGAN BPHTP </H3> <CENTER>
+        Masukkan tarif NJOP  :
+        <INPUT type="text" name="NJOP"><BR>
+        Masukkan tarif NPOPTKP  :
+        <INPUT type="text" name="NPOPTKP"><BR>
+        Masukkan tarif  :
+        <SELECT name="dropdown" onchange"put()">
+        <OPTION>5%
+        <OPTION>6%
+        <OPTION>7%
+        <OPTION>8%
+        </SELECT><BR>		
+        BPHTB  :
+        <input type="submit" name="count" value="submit" >
+        <input type="reset" name="kosongkan" value="kosongkan" ><BR>
+        </BODY>
+     </HTML>
+     
+ (masih error)
+ 
+ 3) server.js 
+ 
+        const express = require('express')
+        const app = express()
 
+        app.set('views', './views')
+        app.set('view engine', 'pug')
+
+        app.get('/', (req, res) => res.send('Hello World!'))
+
+        app.use(express.static('public'))
+
+        app.get('/ayu', function(req, res){
+        res.render('suplier')
+        }) 
+        app.get('/ayu1', function(req, res){
+        res.render('bphtb')
+        })
+        app.post('/ayu1', function(req, res){
+        res.render('bphtb')
+        }) 
+        app.get('/person', function(req, res){
+        res.render('person')
+        })   
+        app.post('/ayuu', function(req, res){
+        res.render('form2')
+        })  
+
+        app.listen(3000, () => console.log('Example app listening on port 3000!'))
