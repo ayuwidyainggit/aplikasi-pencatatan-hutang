@@ -1,5 +1,5 @@
 
-
+14/02/18
 *PROYEK BASIS DATA*
 ======================================================================================================================
 
@@ -212,16 +212,20 @@ hutang.pug
             input(name = "HUTANG")
         br
         button.btn.btn-primary(input type='submit') simpan
-
+27/juli/2018
 a. Nama Aplikasi
 APLIKASI PERHITUNGAN BPHTB
 
 b. Desripsi:
+Bea Perolehan Hak atas Tanah dan Bangunan adalah pajak yg dikenakan atas perolehan hk atas taah dan atas bangunan.
 - Pokok Masalah :
 Membangun aplikasi perhitungan Bea Perolehan hak atas Tanah dan Bangunan
 - Batasan masalah :
+yang menjadi objek pajak BPHTB adalah perolehan ha atas tanah dan bangunan yang meliputi jual beli, tukar menukar, hibah, waris, lelang, dll
 tarif BPHTB adalah 5%
+untuk NPOPTKP jumlahnya sudah ditentukan menurut wilayah masing-masing.
 BPHTB = (NPOP - NPOPTKP)X5%
+-pembuat:
 Ayu Widya Inggit
 D3 KA - 163210012
 
@@ -233,7 +237,24 @@ node JS, MongoDB, Notepad++
 
 f. Cara  Menjalankan
 mengisikan besarnya NPOP dari pembelian tanah dan bangunan , kemudian mengisikan NPOPTKP yg berlaku pada kabupaten tersebut.
+1. dengan menggunakan CMD, masuk ke direktori aplikasi yang dibuat : (E:\cobaproyek\proyekAyu)
+2. menghidupkan server express dengan mengetikkan perintah (node server)
+3. kemudian masuk ke web browser dengan mengetikkan http://localhost:3000/xxx 
+  (xxx diketikkan sesuai routing nya yang ada di server.js)
+  untuk formnya menggunakan format .pug , nah sebelumnya harus instal pug terlebih dahulu.
+4. untuk file prosesnya menggunakan hasil.js (namun masih error)
 
+DATABASE
+1. menginstall mongodb terlebih dahulu
+2. untuk mengaktifkanya dengan masuk ke direktori mongodb, C:\mongodb\bin
+3. untuk mengaktifkan server mongodb kita harus membuka server terlebih dahulu dengan mengetikkan 
+   mongod --storageEngine=mmapv1 --dbpath C:\mongodb\data
+   
+   jika masih error, maka untuk memperbaikinya dengan cara
+   mongod --dbpath C:\mongodb\data --repair
+   kemudian 
+   mongod.exe --dbpath C:\mongodb\data
+   
 
 g. Lisensi
 nodeJS: https://nodejs.org/en/
@@ -337,3 +358,57 @@ https://code.visualstudio.com/Download
 
 
 masalahnya masih seperti kemaren pak, saat diklik buttonnya sudah mau memproses. tapi saat saya tambahkan untuk menghitung, malah jadi error, 
+
+PERKEMBANGAN
+FILE PROSES
+
+     <html>
+     <body>
+       <div class="container"></div>
+       <center>
+       <h2>PERHITUNGAN BPHTB</h2>
+       </center>
+       <html>
+       <head>
+       <title>BPHTB</title>
+       <script type="text/javascript">
+       function hitung()
+       {
+        NPOP =document.getElementById("NPOP").value;
+		NPOPTKP =document.getElementById("NPOPTKP").value;
+		Jumlah = NPOP-NPOPTKP*0.05;
+		document.getElementById("operation").value;
+	   }
+        </head>
+        </body>
+     </html>
+     
+SERVER.js
+
+    const express = require('express')
+    const app = express()
+
+    app.set('views', './views')
+    app.set('view engine', 'pug')
+
+    app.get('/', (req, res) => res.send('Hello World!'))
+
+    app.use(express.static('public'))
+
+    app.get('/ayu', function(req, res){
+    res.render('hasil')
+    }) 
+    app.get('/ayu1', function(req, res){
+    res.render('bphtb')
+    })
+    app.post('/ayu1', function(req, res){
+    res.render('bphtb')
+    }) 
+    app.get('/wp', function(req, res){
+     res.render('person')
+     })   
+    app.post('/ayuu', function(req, res){
+    res.render('form2')
+     })  
+
+     app.listen(3000, () => console.log('Example app listening on port 3000!'))
