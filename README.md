@@ -260,6 +260,7 @@ DATABASE
    kemudian 
    mongod.exe --dbpath C:\mongodb\data
    
+   jika sudah maka membuka mongo yang ada di C:\mongodb\bin
 
 g. Lisensi
 nodeJS: https://nodejs.org/en/
