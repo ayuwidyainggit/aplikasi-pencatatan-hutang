@@ -1,8 +1,9 @@
 
-14/02/18
+
 *PROYEK BASIS DATA*
 ======================================================================================================================
 
+14/02/18
 a. Nama Aplikasi
 APLIKASI PERHITUNGAN HUTANG
 
@@ -46,6 +47,7 @@ mongoDB :
 virtual studio code :
 https://code.visualstudio.com/Download
 
+14 / mei /2018
 
 PROGRESS
 1. routing 
@@ -114,6 +116,7 @@ app.listen(3000, () => console.log('Example app listening on port 3000!'))
          br
           button(type = "submit") SAVE
 
+2 juli 2018
 
 *database suplier*
 
@@ -164,6 +167,7 @@ app.listen(3000, () => console.log('Example app listening on port 3000!'))
 
     app.listen(3000, () => console.log('Example app listening on port 3000!'))
 
+26/juli/2018
 
 FILE PROSES 
 (masih belum bisa dijalankan )
@@ -212,6 +216,7 @@ hutang.pug
             input(name = "HUTANG")
         br
         button.btn.btn-primary(input type='submit') simpan
+	
 27/juli/2018
 a. Nama Aplikasi
 APLIKASI PERHITUNGAN BPHTB
@@ -387,6 +392,40 @@ SERVER.js
 
     const express = require('express')
     const app = express()
+
+    app.set('views', './views')
+    app.set('view engine', 'pug')
+
+    app.get('/', (req, res) => res.send('Hello World!'))
+
+    app.use(express.static('public'))
+
+    app.get('/ayu', function(req, res){
+    res.render('hasil')
+    }) 
+    app.get('/ayu1', function(req, res){
+    res.render('bphtb')
+    })
+    app.post('/ayu1', function(req, res){
+    res.render('bphtb')
+    }) 
+    app.get('/wp', function(req, res){
+     res.render('person')
+     })   
+    app.post('/ayuu', function(req, res){
+    res.render('form2')
+     })  
+
+     app.listen(3000, () => console.log('Example app listening on port 3000!'))
+
+koneksi ke database
+(masih error)
+
+    const express = require('express')
+    const app = express()
+    var mongoose = require('mongooose')
+    monggose.connect('localhost:27017/test')
+    var Schema = mongoose.Schema;
 
     app.set('views', './views')
     app.set('view engine', 'pug')
