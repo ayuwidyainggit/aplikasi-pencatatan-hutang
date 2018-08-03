@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<body bgcolor="BLUE">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Data</title>
+</head>
+<body>
+    <h1><center>PENCATATAN HUTANG</center></h1>
+    <form method="POST" action="/post-hutang">
+        <label>ID HUTANG:<input type="text" name="client-id" required></label>
+        <br>
+        <label>JUMLAH HUTANG SEBELUMNYA:<input type="text" name="client-hutang" required></label>
+        <br>
+        <label>ALAMAT:<br><textarea name="ketetrangan"></textarea></label>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <a href="/view-hutang">lihat hutang</a>
+</body>
+</html>
