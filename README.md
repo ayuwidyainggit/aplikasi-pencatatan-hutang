@@ -452,3 +452,132 @@ koneksi ke database
      })  
 
      app.listen(3000, () => console.log('Example app listening on port 3000!'))
+     
+     
+PERKEMBANGAN 
+2 / AGUSTUS /2018
+
+1. menginstal body parser
+--> berguna untuk mengambil data yang sudah diinputkan.
+
+package.json
+          
+	{
+     "name": "hutang",
+     "version": "1.0.0",
+     "description": "",
+     "main": "index.js",
+     "scripts": {
+     "test": "aplikasi pencatatan hutang"
+      },
+     "keywords": [],
+     "author": "AYU WIDYA INGGIT",
+     "license": "ISC",
+     "dependencies": {
+     "body-parser": "^1.18.3",
+     "express": "^4.16.3",
+     "mongodb": "^3.1.1"
+     }
+     }
+
+app.js
+
+     var express = require('express');
+     var path = require('path');
+     var bodyParser = require('body-parser');
+     var mongodb = require('mongodb');
+
+     var dbConn = mongodb.MongoClient.connect('mongodb://localhost/suplier1');
+
+     var app = express();
+
+     app.use(bodyParser.urlencoded({ extended: false }));
+     app.use(express.static(path.resolve(__dirname, 'public')));
+
+     app.post('/post-feedback', function (req, res) {
+     dbConn.then(function(db) {
+        delete req.body._id; // for safety reasons
+        db.suplier1('feedbacks').insertOne(req.body);
+    });    
+    res.send('Data received:\n' + JSON.stringify(req.body));
+    });
+
+
+    app.get('/view-feedbacks',  function(req, res) {
+     dbConn.then(function(db) {
+        db.suplier1('feedbacks').find({}).toArray().then(function(feedbacks) {
+            res.status(200).json(feedbacks);
+        });
+    });
+     });
+
+     app.post('/post-hutang', function (req, res) {
+     dbConn.then(function(db) {
+        delete req.body._id; // for safety reasons
+        db.suplier1('feedbacks').insertOne(req.body);
+    });    
+     res.send('Data received:\n' + JSON.stringify(req.body));
+    });
+
+
+     app.get('/view-hutang',  function(req, res) {
+     dbConn.then(function(db) {
+        db.suplier1('feedbacks').find({}).toArray().then(function(feedbacks) {
+            res.status(200).json(feedbacks);
+        });
+    });
+     });
+
+
+     app.listen(process.env.PORT || 3000, process.env.IP || '0.0.0.0' );
+
+index.html
+
+     <!doctype html>
+     <html lang="en">
+     <body bgcolor="BLUE">
+     <head>
+     <meta charset="UTF-8">
+     <title>Client Data</title>
+    </head>
+    <body>
+    <h1><center>APLIKASI PENCATATAN HUTANG</center></h1>
+    <form method="POST" action="/post-feedback">
+        <label>SUPLIER:<input type="text" name="client-name" required></label>
+        <br>
+        <label>Email:<input type="text" name="client-email" required></label>
+        <br>
+        <label>ALAMAT:<br><textarea name="address"></textarea></label>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <a href="/view-feedbacks">View feedbacks</a>
+    </body>
+    </html>
+    
+ coba.html
+ 
+    <!doctype html>
+    <html lang="en">
+    <body bgcolor="BLUE">
+    <head>
+     <meta charset="UTF-8">
+     <title>Client Data</title>
+     </head>
+     <body>
+     <h1><center>PENCATATAN HUTANG</center></h1>
+     <form method="POST" action="/post-hutang">
+        <label>ID HUTANG:<input type="text" name="client-id" required></label>
+        <br>
+        <label>INPUT HUTANG:<input type="text" name="client-hutang" required></label>
+        <br>
+        <label>INPUT PELUNASAN:<input type="text" name="client-hutang" required></label>
+        <br>
+        <label>INPUT PELUNASAN:<input type="text" name="client-hutang" required></label>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <a href="/view-hutang">lihat hutang</a>
+    </body>
+    </html>
+ 
